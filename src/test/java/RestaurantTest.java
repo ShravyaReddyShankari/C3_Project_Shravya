@@ -5,6 +5,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -62,6 +64,15 @@ class RestaurantTest {
     public void removing_item_that_does_not_exist_should_throw_exception() {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
+    }
+    @Test
+    public void calculating_order_cost_should_add_prices_of_items_added_and_return_expected_order_cost() {
+        int orderCostExpected = 388;
+        List<String> itemNames = new ArrayList<>();
+        itemNames.add("Sweet corn soup");
+        itemNames.add("Vegetable lasagne");
+        int oderCostActual = restaurant.calculateOrderCost(itemNames);
+        assertNotEquals(0, oderCostActual);
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
