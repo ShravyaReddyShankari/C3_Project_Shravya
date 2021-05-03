@@ -73,6 +73,7 @@ class RestaurantTest {
         itemNames.add("Vegetable lasagne");
         int oderCostActual = restaurant.calculateOrderCost(itemNames);
         assertNotEquals(0, oderCostActual);
+        assertEquals(orderCostExpected, oderCostActual);
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
